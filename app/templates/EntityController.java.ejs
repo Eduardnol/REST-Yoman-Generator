@@ -1,0 +1,27 @@
+package <%= packageName %>.controller.impl;
+
+import <%= packageName %>.controller.<%= entityName %>API;
+import <%= packageName %>.controller.dto.ComboDTO;
+import <%= packageName %>.domain.<%= entityName %>Service;
+import <%= packageName %>.utils.ResponseUtil;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1/<%= entityNameLower %>")
+@RequiredArgsConstructor
+public class <%= entityName %>Controller implements <%= entityName %>API {
+
+  private final <%= entityName %>Service <%= entityNameFirstLower %>Service;
+<% if (includeCombo) { %>
+  @Override
+  @GetMapping("/combo")
+  public ResponseEntity<List<ComboDTO>> getAll<%= entityName %>sCombo() {
+    return ResponseUtil.wrapListOrNoContent(<%= entityNameFirstLower %>Service.getAllCombo());
+  }
+<% } %>
+}

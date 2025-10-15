@@ -1,0 +1,14 @@
+package <%= packageName %>.controller.mappers;
+
+import <%= packageName %>.controller.dto.<%= entityName %>DTO;
+import <%= packageName %>.repository.entity.<%= entityName %>Entity;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+
+@Mapper(
+    componentModel = MappingConstants.ComponentModel.SPRING,
+    uses = {UsuariMapper.class})
+public interface <%= entityName %>Mapper extends EntityMapper<<%= entityName %>DTO, <%= entityName %>Entity> {
+
+}
+

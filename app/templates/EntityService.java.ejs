@@ -1,0 +1,12 @@
+package <%= packageName %>.domain;
+
+import <%= packageName %>.controller.dto.ComboDTO;
+import java.util.List;
+
+
+public interface <%= entityName %>Service {
+<% if (includeCombo) { %>
+  List<ComboDTO> getAllCombo();
+<% } %>
+}
+

@@ -1,0 +1,9 @@
+package <%= packageName %>.repository;
+
+import <%= packageName %>.repository.entity.<%= entityName %>Entity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface <%= entityName %>Repository extends JpaRepository<<%= entityName %>Entity, Integer> {
+
+}
+

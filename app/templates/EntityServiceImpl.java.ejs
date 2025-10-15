@@ -1,0 +1,29 @@
+package <%= packageName %>.domain.impl;
+
+import <%= packageName %>.controller.dto.ComboDTO;
+import <%= packageName %>.controller.mappers.<%= entityName %>Mapper;
+import <%= packageName %>.domain.<%= entityName %>Service;
+import <%= packageName %>.repository.<%= entityName %>Repository;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+@Slf4j
+@RequiredArgsConstructor
+public class <%= entityName %>ServiceImpl implements <%= entityName %>Service {
+
+  private final <%= entityName %>Repository <%= entityNameFirstLower %>Repository;
+  private final <%= entityName %>Mapper <%= entityNameFirstLower %>Mapper;
+<% if (includeCombo) { %>
+  @Transactional(readOnly = true)
+  @Override
+  public List<ComboDTO> getAllCombo() {
+    return <%= entityNameFirstLower %>Repository.findAll().stream().map(<%= entityNameFirstLower %>Mapper::toDto);
+  }
+<% } %>
+}
+

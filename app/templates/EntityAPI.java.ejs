@@ -1,0 +1,12 @@
+package <%= packageName %>.controller;
+
+import <%= packageName %>.controller.dto.ComboDTO;
+import java.util.List;
+import org.springframework.http.ResponseEntity;
+
+public interface <%= entityName %>API {
+<% if (includeCombo) { %>
+  ResponseEntity<List<ComboDTO>> getAll<%= entityName %>sCombo();
+<% } %>
+}
+
