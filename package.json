@@ -1,5 +1,5 @@
 {
-  "name": "@eduardnol/REST-Yoman-Generator",
+  "name": "@eduardnol/rest-yoman-generator",
   "version": "1.0.0",
   "description": "Generador de APIs REST para Spring Boot basado en arquitectura API, Controller, Service y ServiceImpl.",
   "main": "app/index.js",
