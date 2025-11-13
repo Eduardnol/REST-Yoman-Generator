@@ -97,25 +97,31 @@ Esto generará:
 generators/
 ├── package.json
 ├── README.md
-└── app/
+├── install.sh
+├── app/
+│   ├── index.js
+│   └── templates/
+└── add-method/
     ├── index.js
-    └── templates/
-        ├── EntityEntity.java.ejs
-        ├── EntityDTO.java.ejs
-        ├── EntityRepository.java.ejs
-        ├── EntityMapper.java.ejs
-        ├── EntityService.java.ejs
-        ├── EntityServiceImpl.java.ejs
-        ├── EntityAPI.java.ejs
-        └── EntityController.java.ejs
+    └── README.md
 ```
 
-## 📝 Personalización
+## 🔧 Sub-generadores
 
-Puedes modificar las plantillas `.ejs` en `app/templates/` para ajustar el código generado según tus necesidades.
+### Add Method
 
-Las plantillas usan la sintaxis EJS:
-- `<%= variable %>`: Imprime el valor de la variable
-- `<% if (condition) { %>....<% } %>`: Condicionales
-- Variables disponibles: `entityName`, `entityNameLower`, `entityNameFirstLower`, `packageName`, `tableName`, etc.
+Permite añadir nuevos métodos/endpoints a entidades existentes.
 
+**Uso:**
+```bash
+yo ./generators/add-method
+```
+
+Este sub-generador te permite:
+- Añadir nuevos endpoints a entidades existentes
+- Elegir el tipo HTTP (GET, POST, PUT, DELETE)
+- Configurar paginación
+- Definir DTOs de entrada y salida
+- Generar automáticamente el código en API, Controller, Service y ServiceImpl
+
+Ver [documentación completa del add-method](./add-method/README.md)
