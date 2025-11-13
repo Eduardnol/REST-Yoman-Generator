@@ -16,6 +16,6 @@
     "yeoman-test" : "6.3.0"
   },
   "publishConfig": {
-  "@EDUARDNOL:registry": "https://npm.pkg.github.com"
+    "@EDUARDNOL:registry": "https://npm.pkg.github.com"
   }
 }
