@@ -1,7 +1,7 @@
 {
   "name" : "generator-spring-rest-api",
   "version" : "1.0.0",
-  "description" : "Generador de APIs REST para Spring Boot basado en el patrón Sector",
+  "description" : "Generador de APIs REST para Spring Boot basado en arquitectura API, Controller, Service y ServiceImpl.",
   "main" : "app/index.js",
   "keywords" : [
     "yeoman-generator",
@@ -9,10 +9,13 @@
     "rest-api"
   ],
   "dependencies" : {
-    "yeoman-generator" : "^5.7.0",
-    "chalk" : "^4.1.2"
+    "yeoman-generator" : "5.7.0",
+    "chalk" : "4.1.2"
   },
   "devDependencies" : {
-    "yeoman-test" : "^6.3.0"
+    "yeoman-test" : "6.3.0"
+  },
+  "publishConfig": {
+  "@EDUARDNOL:registry": "https://npm.pkg.github.com"
   }
 }
