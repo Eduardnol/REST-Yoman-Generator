@@ -1,6 +1,6 @@
 {
   "name": "@eduardnol/rest-yoman-generator",
-  "version": "1.0.0",
+  "version": "1.0.1-RC",
   "description": "Generador de APIs REST para Spring Boot basado en arquitectura API, Controller, Service y ServiceImpl.",
   "main": "app/index.js",
   "publishConfig": {
