@@ -6,14 +6,18 @@
   "publishConfig": {
     "@eduardnol:registry": "https://npm.pkg.github.com"
   },
+  "scripts": {
+    "generate": "yo spring-rest-api"
+  },
   "keywords": [
     "yeoman-generator",
     "spring-boot",
     "rest-api"
   ],
   "dependencies": {
+    "chalk": "4.1.2",
     "yeoman-generator": "5.7.0",
-    "chalk": "4.1.2"
+    "yo": "^6.0.0"
   },
   "devDependencies": {
     "yeoman-test": "6.3.0"
