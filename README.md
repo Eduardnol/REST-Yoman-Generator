@@ -86,7 +86,7 @@ El generador creará 8 archivos siguiendo el patrón de SectorAPI:
 Para una entidad llamada `Producto`:
 
 ```bash
-yo spring-rest-api
+yo @eduardnol/spring-rest-api
 ? ¿Cuál es el nombre de la entidad? Producto
 ? ¿Cuál es el nombre de la tabla en la base de datos? in_producto
 ? ¿Cuál es el nombre de la columna ID? id_producto
@@ -106,6 +106,15 @@ Esto generará:
 2. Deberás ajustar los campos adicionales según tus necesidades
 3. No olvides crear la migración de base de datos correspondiente
 4. Ejecuta los tests después de generar los archivos
+
+## 📦 Clases requeridas en el proyecto
+
+El generador asume que las siguientes clases existen en tu proyecto Spring Boot:
+
+- **`ResponseUtil`**: Clase de utilidad para generar respuestas HTTP estándar
+- **`ComboDTO`**: DTO genérico para endpoints de combo (si se habilita la opción)
+
+Estas clases son parte del patrón SectorAPI y deben existir en tu proyecto antes de usar el código generado.
 
 ## 🛠️ Estructura del generador
 
