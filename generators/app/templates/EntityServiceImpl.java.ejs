@@ -22,7 +22,12 @@ public class <%= entityName %>ServiceImpl implements <%= entityName %>Service {
   @Transactional(readOnly = true)
   @Override
   public List<ComboDTO> getAllCombo() {
-    return <%= entityNameFirstLower %>Repository.findAll().stream().map(<%= entityNameFirstLower %>Mapper::toDto);
+    return <%= entityNameFirstLower %>Repository.findAll().stream()
+        .map(entity -> ComboDTO.builder()
+            .id(entity.getId())
+            .nom(entity.getNom())
+            .build())
+        .toList();
   }
 <% } %>
 }

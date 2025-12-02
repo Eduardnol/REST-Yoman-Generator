@@ -1,21 +1,46 @@
 {
-  "name": "@eduardnol/rest-yoman-generator",
+  "name": "@eduardnol/generator-spring-rest-api",
   "version": "1.0.0",
-  "description": "Generador de APIs REST para Spring Boot basado en arquitectura API, Controller, Service y ServiceImpl.",
-  "main": "app/index.js",
-  "publishConfig": {
-    "@eduardnol:registry": "https://npm.pkg.github.com"
+  "description": "Generador Yeoman de APIs REST para Spring Boot basado en arquitectura API, Controller, Service y ServiceImpl.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eduardnol/REST-Yoman-Generator.git"
   },
+  "author": "Eduardnol",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "generators"
+  ],
   "keywords": [
     "yeoman-generator",
     "spring-boot",
-    "rest-api"
+    "rest-api",
+    "java",
+    "generator"
   ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
   "dependencies": {
-    "yeoman-generator": "5.7.0",
-    "chalk": "4.1.2"
+    "chalk": "^4.1.2",
+    "yeoman-generator": "^5.7.0"
   },
   "devDependencies": {
-    "yeoman-test": "6.3.0"
+    "jest": "^29.7.0",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^6.3.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "templates"
+    ]
   }
 }

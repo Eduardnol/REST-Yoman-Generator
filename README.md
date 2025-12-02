@@ -1,6 +1,6 @@
-# Generador de API REST - Spring Boot
+# @eduardnol/generator-spring-rest-api
 
-Generador Yeoman para crear automáticamente APIs REST siguiendo el patrón de SectorAPI.
+> Generador Yeoman para crear automáticamente APIs REST para Spring Boot siguiendo el patrón de SectorAPI.
 
 ## 📋 Requisitos previos
 
@@ -10,21 +10,37 @@ Generador Yeoman para crear automáticamente APIs REST siguiendo el patrón de S
 
 ## 🚀 Instalación
 
-### Opción rápida
-> Ejecuta `install.sh`
+### Desde GitHub Packages
 
-### Opción manual
-1. Instala Yeoman globalmente si no lo tienes:
+1. Configura npm para usar GitHub Packages para el scope @eduardnol:
+```bash
+echo "@eduardnol:registry=https://npm.pkg.github.com" >> ~/.npmrc
+```
+
+2. Instala Yeoman globalmente si no lo tienes:
 ```bash
 npm install -g yo
 ```
 
-2. Ve a la carpeta del generador:
+3. Instala el generador:
 ```bash
-cd generators
+npm install -g @eduardnol/generator-spring-rest-api
 ```
 
-3. Instala las dependencias:
+### Desarrollo local
+
+1. Clona el repositorio y navega a la carpeta:
+```bash
+git clone https://github.com/Eduardnol/REST-Yoman-Generator.git
+cd REST-Yoman-Generator
+```
+
+2. Instala Yeoman globalmente si no lo tienes:
+```bash
+npm install -g yo
+```
+
+3. Instala las dependencias del generador:
 ```bash
 npm install
 ```
@@ -36,10 +52,10 @@ npm link
 
 ## 📖 Uso
 
-Desde la raíz del proyecto, ejecuta:
+Desde la raíz del proyecto Spring Boot donde quieras generar los archivos, ejecuta:
 
 ```bash
-yo spring-rest-api
+yo @eduardnol/spring-rest-api
 ```
 
 El generador te pedirá la siguiente información:
@@ -70,7 +86,7 @@ El generador creará 8 archivos siguiendo el patrón de SectorAPI:
 Para una entidad llamada `Producto`:
 
 ```bash
-yo spring-rest-api
+yo @eduardnol/spring-rest-api
 ? ¿Cuál es el nombre de la entidad? Producto
 ? ¿Cuál es el nombre de la tabla en la base de datos? in_producto
 ? ¿Cuál es el nombre de la columna ID? id_producto
@@ -91,31 +107,56 @@ Esto generará:
 3. No olvides crear la migración de base de datos correspondiente
 4. Ejecuta los tests después de generar los archivos
 
+## 📦 Clases requeridas en el proyecto
+
+El generador asume que las siguientes clases existen en tu proyecto Spring Boot:
+
+- **`ResponseUtil`**: Clase de utilidad para generar respuestas HTTP estándar
+- **`ComboDTO`**: DTO genérico para endpoints de combo (si se habilita la opción)
+
+Estas clases son parte del patrón SectorAPI y deben existir en tu proyecto antes de usar el código generado.
+
 ## 🛠️ Estructura del generador
 
 ```
-generators/
+generator-spring-rest-api/
 ├── package.json
 ├── README.md
-└── app/
-    ├── index.js
-    └── templates/
-        ├── EntityEntity.java.ejs
-        ├── EntityDTO.java.ejs
-        ├── EntityRepository.java.ejs
-        ├── EntityMapper.java.ejs
-        ├── EntityService.java.ejs
-        ├── EntityServiceImpl.java.ejs
-        ├── EntityAPI.java.ejs
-        └── EntityController.java.ejs
+├── __tests__/
+│   └── app.test.js
+└── generators/
+    └── app/
+        ├── index.js
+        └── templates/
+            ├── BaseEntityMapper.java.ejs
+            ├── EntityEntity.java.ejs
+            ├── EntityDTO.java.ejs
+            ├── EntityRepository.java.ejs
+            ├── EntityMapper.java.ejs
+            ├── EntityService.java.ejs
+            ├── EntityServiceImpl.java.ejs
+            ├── EntityAPI.java.ejs
+            └── EntityController.java.ejs
+```
+
+## 🧪 Testing
+
+Para ejecutar los tests:
+
+```bash
+npm test
 ```
 
 ## 📝 Personalización
 
-Puedes modificar las plantillas `.ejs` en `app/templates/` para ajustar el código generado según tus necesidades.
+Puedes modificar las plantillas `.ejs` en `generators/app/templates/` para ajustar el código generado según tus necesidades.
 
 Las plantillas usan la sintaxis EJS:
 - `<%= variable %>`: Imprime el valor de la variable
 - `<% if (condition) { %>....<% } %>`: Condicionales
 - Variables disponibles: `entityName`, `entityNameLower`, `entityNameFirstLower`, `packageName`, `tableName`, etc.
+
+## 📄 Licencia
+
+MIT
 
