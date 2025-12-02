@@ -1,6 +1,8 @@
-# Generador de API REST - Spring Boot
+# generator-spring-rest-api
 
-Generador Yeoman para crear automáticamente APIs REST siguiendo el patrón de SectorAPI.
+[![npm version](https://badge.fury.io/js/generator-spring-rest-api.svg)](https://badge.fury.io/js/generator-spring-rest-api)
+
+> Generador Yeoman para crear automáticamente APIs REST para Spring Boot siguiendo el patrón de SectorAPI.
 
 ## 📋 Requisitos previos
 
@@ -19,24 +21,19 @@ Generador Yeoman para crear automáticamente APIs REST siguiendo el patrón de S
 npm install -g yo
 ```
 
-2. Ve a la carpeta del generador:
-```bash
-cd generators
-```
-
-3. Instala las dependencias:
+2. Instala las dependencias del generador:
 ```bash
 npm install
 ```
 
-4. Enlaza el generador localmente:
+3. Enlaza el generador localmente:
 ```bash
 npm link
 ```
 
 ## 📖 Uso
 
-Desde la raíz del proyecto, ejecuta:
+Desde la raíz del proyecto Spring Boot donde quieras generar los archivos, ejecuta:
 
 ```bash
 yo spring-rest-api
@@ -94,28 +91,44 @@ Esto generará:
 ## 🛠️ Estructura del generador
 
 ```
-generators/
+generator-spring-rest-api/
 ├── package.json
 ├── README.md
-└── app/
-    ├── index.js
-    └── templates/
-        ├── EntityEntity.java.ejs
-        ├── EntityDTO.java.ejs
-        ├── EntityRepository.java.ejs
-        ├── EntityMapper.java.ejs
-        ├── EntityService.java.ejs
-        ├── EntityServiceImpl.java.ejs
-        ├── EntityAPI.java.ejs
-        └── EntityController.java.ejs
+├── __tests__/
+│   └── app.test.js
+└── generators/
+    └── app/
+        ├── index.js
+        └── templates/
+            ├── BaseEntityMapper.java.ejs
+            ├── EntityEntity.java.ejs
+            ├── EntityDTO.java.ejs
+            ├── EntityRepository.java.ejs
+            ├── EntityMapper.java.ejs
+            ├── EntityService.java.ejs
+            ├── EntityServiceImpl.java.ejs
+            ├── EntityAPI.java.ejs
+            └── EntityController.java.ejs
+```
+
+## 🧪 Testing
+
+Para ejecutar los tests:
+
+```bash
+npm test
 ```
 
 ## 📝 Personalización
 
-Puedes modificar las plantillas `.ejs` en `app/templates/` para ajustar el código generado según tus necesidades.
+Puedes modificar las plantillas `.ejs` en `generators/app/templates/` para ajustar el código generado según tus necesidades.
 
 Las plantillas usan la sintaxis EJS:
 - `<%= variable %>`: Imprime el valor de la variable
 - `<% if (condition) { %>....<% } %>`: Condicionales
 - Variables disponibles: `entityName`, `entityNameLower`, `entityNameFirstLower`, `packageName`, `tableName`, etc.
+
+## 📄 Licencia
+
+MIT
 
