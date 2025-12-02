@@ -1,6 +1,4 @@
-# generator-spring-rest-api
-
-[![npm version](https://badge.fury.io/js/generator-spring-rest-api.svg)](https://badge.fury.io/js/generator-spring-rest-api)
+# @eduardnol/generator-spring-rest-api
 
 > Generador Yeoman para crear automáticamente APIs REST para Spring Boot siguiendo el patrón de SectorAPI.
 
@@ -12,21 +10,42 @@
 
 ## 🚀 Instalación
 
-### Opción rápida
-> Ejecuta `install.sh`
+### Desde GitHub Packages
 
-### Opción manual
-1. Instala Yeoman globalmente si no lo tienes:
+1. Configura npm para usar GitHub Packages para el scope @eduardnol:
+```bash
+echo "@eduardnol:registry=https://npm.pkg.github.com" >> ~/.npmrc
+```
+
+2. Instala Yeoman globalmente si no lo tienes:
 ```bash
 npm install -g yo
 ```
 
-2. Instala las dependencias del generador:
+3. Instala el generador:
+```bash
+npm install -g @eduardnol/generator-spring-rest-api
+```
+
+### Desarrollo local
+
+1. Clona el repositorio y navega a la carpeta:
+```bash
+git clone https://github.com/Eduardnol/REST-Yoman-Generator.git
+cd REST-Yoman-Generator
+```
+
+2. Instala Yeoman globalmente si no lo tienes:
+```bash
+npm install -g yo
+```
+
+3. Instala las dependencias del generador:
 ```bash
 npm install
 ```
 
-3. Enlaza el generador localmente:
+4. Enlaza el generador localmente:
 ```bash
 npm link
 ```
@@ -36,7 +55,7 @@ npm link
 Desde la raíz del proyecto Spring Boot donde quieras generar los archivos, ejecuta:
 
 ```bash
-yo spring-rest-api
+yo @eduardnol/spring-rest-api
 ```
 
 El generador te pedirá la siguiente información:

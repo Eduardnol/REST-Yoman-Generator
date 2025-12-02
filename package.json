@@ -1,5 +1,5 @@
 {
-  "name": "generator-spring-rest-api",
+  "name": "@eduardnol/generator-spring-rest-api",
   "version": "1.0.0",
   "description": "Generador Yeoman de APIs REST para Spring Boot basado en arquitectura API, Controller, Service y ServiceImpl.",
   "repository": {
@@ -8,6 +8,9 @@
   },
   "author": "Eduardnol",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "generators"
   ],
