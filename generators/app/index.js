@@ -80,39 +80,50 @@ module.exports = class extends Generator {
   writing() {
     this.log(chalk.blue('\n📝 Generando archivos...\n'));
 
+    // Contador de archivos generados
+    this.filesGenerated = 0;
+
     // Generar EntityMapper base si no existe
     this._generateBaseEntityMapper();
 
     // Generar Entity
     this._generateEntity();
+    this.filesGenerated++;
     this.log(chalk.green('✓ Entity generada'));
 
     // Generar DTO
     this._generateDTO();
+    this.filesGenerated++;
     this.log(chalk.green('✓ DTO generado'));
 
     // Generar Repository
     this._generateRepository();
+    this.filesGenerated++;
     this.log(chalk.green('✓ Repository generado'));
 
     // Generar Mapper
     this._generateMapper();
+    this.filesGenerated++;
     this.log(chalk.green('✓ Mapper generado'));
 
     // Generar Service Interface
     this._generateServiceInterface();
+    this.filesGenerated++;
     this.log(chalk.green('✓ Service Interface generado'));
 
     // Generar Service Implementation
     this._generateServiceImpl();
+    this.filesGenerated++;
     this.log(chalk.green('✓ Service Implementation generado'));
 
     // Generar API Interface
     this._generateAPIInterface();
+    this.filesGenerated++;
     this.log(chalk.green('✓ API Interface generado'));
 
     // Generar Controller
     this._generateController();
+    this.filesGenerated++;
     this.log(chalk.green('✓ Controller generado'));
   }
 
@@ -128,6 +139,7 @@ module.exports = class extends Generator {
           packageName: this.packageName
         }
       );
+      this.filesGenerated++;
       this.log(chalk.green('✓ EntityMapper base generado'));
     } else {
       this.log(chalk.gray('  EntityMapper base ya existe (omitido)'));
@@ -240,7 +252,7 @@ module.exports = class extends Generator {
     this.log(chalk.green('===========================================\n'));
     this.log(chalk.blue(`📦 Entidad: ${this.entityName}`));
     this.log(chalk.blue(`🌐 Endpoint: /api/v1/${this.entityNameLower}`));
-    this.log(chalk.blue(`📁 Archivos generados: 8`));
+    this.log(chalk.blue(`📁 Archivos generados: ${this.filesGenerated}`));
     this.log(chalk.yellow('\n💡 No olvides:'));
     this.log(chalk.yellow('   1. Verificar y ajustar los campos de la entidad'));
     this.log(chalk.yellow('   2. Crear la migración de base de datos si es necesario'));

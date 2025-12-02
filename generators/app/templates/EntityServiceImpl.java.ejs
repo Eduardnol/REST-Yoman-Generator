@@ -23,10 +23,9 @@ public class <%= entityName %>ServiceImpl implements <%= entityName %>Service {
   @Override
   public List<ComboDTO> getAllCombo() {
     return <%= entityNameFirstLower %>Repository.findAll().stream()
-        .map(<%= entityNameFirstLower %>Mapper::toDto)
-        .map(dto -> ComboDTO.builder()
-            .id(dto.getId())
-            .nom(dto.getNom())
+        .map(entity -> ComboDTO.builder()
+            .id(entity.getId())
+            .nom(entity.getNom())
             .build())
         .toList();
   }
